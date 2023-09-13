@@ -7,16 +7,16 @@ git clone https://gitlab.com/soapbox-pub/soapbox.git
 cd soapbox-fe
 ```
 
-Ensure that Node.js and Yarn are installed, then install dependencies:
+Ensure that Node.js and Bun are installed, then install dependencies:
 
 ```
-yarn
+bun install
 ```
 
 Finally, run the dev server:
 
 ```
-yarn dev
+bun dev
 ```
 
 **That's it!** 🎉

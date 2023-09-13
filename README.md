@@ -44,12 +44,12 @@ Already have a server? No problem — it is still possible to use Soapbox.
 
 # Developing Soapbox
 
-tl;dr — `git clone`, `yarn`, and `yarn dev`.
+tl;dr — `git clone`, `bun install`, and `bun dev`.
 
 For detailed guides, see these pages:
 
 1. [Soapbox local development](https://docs.soapbox.pub/frontend/development/running-locally/)
-2. [yarn commands](https://docs.soapbox.pub/frontend/development/yarn-commands/)
+2. [bun commands](https://docs.soapbox.pub/frontend/development/bun-commands/)
 3. [How it works](https://docs.soapbox.pub/frontend/development/how-it-works/)
 4. [Environment variables](https://docs.soapbox.pub/frontend/development/local-config/)
 5. [Developing a backend](https://docs.soapbox.pub/frontend/development/developing-backend/)
