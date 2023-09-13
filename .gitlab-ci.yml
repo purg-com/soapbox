@@ -89,7 +89,7 @@ nginx-test:
 build-production:
   stage: test
   script:
-    - bun build
+    - bun run build
     # - bun manage:translations en
     # # Fail if files got changed.
     # # https://stackoverflow.com/a/9066385

@@ -84,7 +84,7 @@ if (!fs.existsSync(messagesDirectory)) {
   console.error(`
 Error: messagesDirectory not exists
 (${messagesDirectory})
-Try to run "bun build" first`);
+Try to run "bun run build" first`);
   process.exit(1);
 }
 

@@ -12,7 +12,7 @@ NODE_ENV=development
 - `bun dev` - Run the local dev server.
 
 ## Building
-- `bun build` - Compile without a dev server, into `/static` directory.
+- `bun run build` - Compile without a dev server, into `/static` directory.
 
 ## Translations
 - `bun i18n` - Rebuilds app and updates English locale to prepare for translations in other languages. Should always be run after editing i18n strings.

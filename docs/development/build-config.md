@@ -118,7 +118,7 @@ When compiling Soapbox, environment variables may be passed to change the build 
 For example:
 
 ```sh
-NODE_ENV="production" FE_BUILD_DIR="public" FE_SUBDIRECTORY="/soapbox" bun build
+NODE_ENV="production" FE_BUILD_DIR="public" FE_SUBDIRECTORY="/soapbox" bun run build
 ```
 
 ### `NODE_ENV`
@@ -172,7 +172,7 @@ Default: `"/"`
 For example, if you want to host the build on `https://gleasonator.com/soapbox`, you can compile it like this:
 
 ```sh
-NODE_ENV="production" FE_SUBDIRECTORY="/soapbox" bun build
+NODE_ENV="production" FE_SUBDIRECTORY="/soapbox" bun run build
 ```
 
 ### `SENTRY_DSN`

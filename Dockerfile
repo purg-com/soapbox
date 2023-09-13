@@ -5,7 +5,7 @@ COPY bun.lockdb .
 RUN bun install
 COPY . .
 ARG NODE_ENV=production
-RUN bun build
+RUN bun run build
 
 FROM nginx:stable-alpine
 EXPOSE 5000
