@@ -18,6 +18,10 @@ yarn-error.log*
 .idea
 .DS_Store
 
+# Other package managers
+package-lock.json
+yarn.lock
+
 # Custom build files
 /custom/**/*
 !/custom/*
