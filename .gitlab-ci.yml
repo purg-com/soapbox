@@ -1,4 +1,4 @@
-image: node:20
+image: oven/bun:1.0
 
 variables:
   NODE_ENV: test
@@ -10,7 +10,7 @@ default:
 cache: &cache
   key:
     files:
-      - yarn.lock
+      - bun.lockdb
   paths:
     - node_modules/
   policy: pull
@@ -23,10 +23,10 @@ stages:
 
 deps:
   stage: deps
-  script: yarn install --ignore-scripts
+  script: bun install
   only:
     changes:
-      - yarn.lock
+      - bun.lockdb
   cache:
     <<: *cache
     policy: push
@@ -36,7 +36,7 @@ danger:
   script:
     # https://github.com/danger/danger-js/issues/1029#issuecomment-998915436
     - export CI_MERGE_REQUEST_IID=${CI_OPEN_MERGE_REQUESTS#*!}
-    - npx danger ci
+    - bunx danger ci
   except:
     variables:
       - $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
@@ -44,7 +44,7 @@ danger:
 
 lint-js:
   stage: test
-  script: yarn lint:js
+  script: bun lint:js
   only:
     changes:
       - "**/*.js"
@@ -58,7 +58,7 @@ lint-js:
 
 lint-sass:
   stage: test
-  script: yarn lint:sass
+  script: bun lint:sass
   only:
     changes:
       - "**/*.scss"
@@ -67,7 +67,7 @@ lint-sass:
 
 # jest:
 #   stage: test
-#   script: yarn test:coverage --runInBand
+#   script: bun test:coverage --runInBand
 #   only:
 #     changes:
 #       - "**/*.js"
@@ -77,7 +77,7 @@ lint-sass:
 #       - "custom/**/*"
 #       - "jest.config.cjs"
 #       - "package.json"
-#       - "yarn.lock"
+#       - "bun.lockdb"
 #       - ".gitlab-ci.yml"
 #   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
 #   artifacts:
@@ -100,8 +100,8 @@ nginx-test:
 build-production:
   stage: test
   script:
-    - yarn build
-    # - yarn manage:translations en
+    - bun build
+    # - bun manage:translations en
     # # Fail if files got changed.
     # # https://stackoverflow.com/a/9066385
     # - git diff --quiet
@@ -130,7 +130,7 @@ review:
     name: review/$CI_COMMIT_REF_NAME
     url: https://$CI_COMMIT_REF_SLUG.git.soapbox.pub
   script:
-    - npx -y surge static $CI_COMMIT_REF_SLUG.git.soapbox.pub
+    - bunx -y surge static $CI_COMMIT_REF_SLUG.git.soapbox.pub
   allow_failure: true
 
 pages:
@@ -169,7 +169,7 @@ release:
   rules:
     - if: $CI_COMMIT_TAG
   script:
-    - npx ts-node ./scripts/do-release.ts
+    - bun ./scripts/do-release.ts
   interruptible: false
 
 include:

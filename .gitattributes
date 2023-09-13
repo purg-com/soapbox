@@ -1,1 +1,2 @@
 CHANGELOG.md merge=union
+*.lockb binary diff=lockb
