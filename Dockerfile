@@ -1,11 +1,11 @@
-FROM node:20 as build
+FROM oven/bun:1.0 as build
 WORKDIR /app
 COPY package.json .
-COPY yarn.lock .
-RUN yarn
+COPY bun.lockdb .
+RUN bun install
 COPY . .
 ARG NODE_ENV=production
-RUN yarn build
+RUN bun build
 
 FROM nginx:stable-alpine
 EXPOSE 5000

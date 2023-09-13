@@ -1,4 +1,4 @@
-FROM node:20
+FROM oven/bun:1.0
 
 RUN apt-get update &&\
     apt-get install -y inotify-tools &&\
@@ -9,10 +9,10 @@ WORKDIR /app
 ENV NODE_ENV=development
 
 COPY package.json .
-COPY yarn.lock .
-RUN yarn
+COPY bun.lockdb .
+RUN bun install
 
 COPY . .
 
 ENV DEVSERVER_URL=http://0.0.0.0:3036
-CMD yarn dev
+CMD bun dev
