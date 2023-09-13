@@ -52,13 +52,13 @@ const validateLanguages = (languages: string[], validators: Validator[]): void =
 Error: Specified invalid LANGUAGES:
 ${invalidLanguages.map(({ language, error }) => `* ${language}: ${error.message}`).join('\n')}
 
-Use yarn "manage:translations -- --help" for usage information
+Use bun "manage:translations -- --help" for usage information
 `);
     process.exit(1);
   }
 };
 
-const usage = `Usage: yarn manage:translations [OPTIONS] [LANGUAGES]
+const usage = `Usage: bun manage:translations [OPTIONS] [LANGUAGES]
 
 Manage JavaScript translation files in Soapbox. Generates and update translations in translationsDirectory: ${translationsDirectory}
 
@@ -84,7 +84,7 @@ if (!fs.existsSync(messagesDirectory)) {
   console.error(`
 Error: messagesDirectory not exists
 (${messagesDirectory})
-Try to run "yarn build" first`);
+Try to run "bun build" first`);
   process.exit(1);
 }
 
